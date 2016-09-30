@@ -1,3 +1,13 @@
+# eclipse
+.metadata
+.settings
+.classpath
+.project
+
+target
+.cache-main
+.cache-tests
+
 *.class
 
 # Mobile Tools for Java (J2ME)
