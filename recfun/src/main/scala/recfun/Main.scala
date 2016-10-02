@@ -33,7 +33,7 @@ object Main {
       case _   => count
     }
 
-    return balancer(0, chars) == 0
+    balancer(0, chars) == 0
   }
 
   /**
