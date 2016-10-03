@@ -1,6 +1,5 @@
 package example
 
-
 object Lists {
 
   /**
@@ -23,15 +22,10 @@ object Lists {
    * @param xs A list of natural numbers
    * @return The sum of all elements in `xs`
    */
-    def sum(xs: List[Int]): Int = sum(xs.head, xs.tail)
-    
-    def sum(acc: Int, xs: List[Int]): Int = {
-      if (xs.isEmpty)
-        acc
-      else
-        sum(acc + xs.head, xs.tail)
-    }
-  
+  def sum(xs: List[Int]): Int =
+    if (xs.isEmpty) 0
+    else xs.head + sum(xs.tail)
+
   /**
    * This method returns the largest element in a list of integers. If the
    * list `xs` is empty it throws a `java.util.NoSuchElementException`.
@@ -45,14 +39,16 @@ object Lists {
    * @return The largest element in `xs`
    * @throws java.util.NoSuchElementException if `xs` is an empty list
    */
-    def max(xs: List[Int]): Int = max(Integer.MIN_VALUE, xs)
+  def max(xs: List[Int]): Int = 
+    if (xs.isEmpty) throw new java.util.NoSuchElementException
+    else max(Integer.MIN_VALUE, xs)
 
-    def max(largest: Int, xs: List[Int]): Int = {
-      if (xs.isEmpty)
-        largest
-      else if (xs.head > largest)
-        max(xs.head, xs.tail)
-      else
-        max(largest, xs.tail)        
-    }
+  def max(largest: Int, xs: List[Int]): Int = {
+    if (xs.isEmpty)
+      largest
+    else if (xs.head > largest)
+      max(xs.head, xs.tail)
+    else
+      max(largest, xs.tail)
   }
+}
